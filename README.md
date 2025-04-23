@@ -103,6 +103,7 @@ To better understand relationships between continuous variables, I created a cor
 #### An Interesting Aggregate
 
 *Lyft Data Table*
+
 | destination       | cab_type   |   price_mean |   price_median |   distance_mean |   distance_median |
 |:------------------|:-----------|-------------:|---------------:|----------------:|------------------:|
 | Boston University | Lyft       |        20.32 |           19.5 |            3.18 |              3.07 |
@@ -112,6 +113,7 @@ To better understand relationships between continuous variables, I created a cor
 | West End          | Lyft       |        17.08 |           16.5 |            2.12 |              2.77 |
 
 *Uber Data Table*
+
 | destination             | cab_type   |   price_mean |   price_median |   distance_mean |   distance_median |
 |:------------------------|:-----------|-------------:|---------------:|----------------:|------------------:|
 | Boston University       | Uber       |        17.5  |           15   |            2.88 |              2.8  |
