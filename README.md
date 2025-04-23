@@ -46,21 +46,22 @@ One of the biggest challenges was missing values in the `price` column. To addre
 
 Here is the visualization showcasing the differences between the original and imputed price distributions:
 
-<iframe src="assets/fare-imputation-comparison.html" width="800" height="600" frameborder="0"></iframe>
-
-Given that the two imputation methods yield nearly identical distributions and the overall percentage of missing values is low, we can safely conclude that the choice of imputation strategy will not materially affect our analysis. Therefore, we adopt a probabilistic imputation approach, sampling each missing value from the empirical distribution of observed values:
+<iframe src="assets/fare-imputation-comparison.html" width="800" height="600" frameborder="0"></iframe> Given that the two imputation methods yield nearly identical distributions and the overall percentage of missing values is low, we can safely conclude that the choice of imputation strategy will not materially affect our analysis. Therefore, we adopt a probabilistic imputation approach, sampling each missing value from the empirical distribution of observed values:
+The probabilistic imputation strategy samples missing values directly from the empirical distribution of observed values:
 
 $$
 x_i^{(\mathrm{imputed})} = x_j,\quad
-j \sim \mathrm{Uniform}\bigl(\{k \mid x_k \neq \mathrm{NaN}\}\bigr).
+j \sim \mathrm{Uniform}\left(\{k \mid x_k \neq \mathrm{NaN}\}\right)
+$$
+$$
+P\left(x_i^{(\mathrm{imputed})} = x_j\right)
+= \frac{1}{n_{\mathrm{observed}}}
 $$
 
-Equivalently, each observed value has equal probability:
+Since the two imputation methods yielded nearly identical distributions and the percentage of missing data was relatively low, I decided to proceed with the probabilistic approach. While I could have left the `NaN` values untouched, imputing gave me a more complete column to work with in future modeling steps.
 
-$$
-P\bigl(x_i^{(\mathrm{imputed})} = x_j\bigr)
-= \frac{1}{n_{\mathrm{observed}}},
-$$
-
-Regardless, my selection for which method doesn't affect the overall distribution. Hence, I could've just kept variables as NaN, but I preferred to have it imputed, in order to have a full column of information (pricing, as it becomes relevant later).
-
+<!-- Load MathJax for LaTeX rendering -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
