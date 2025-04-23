@@ -128,17 +128,19 @@ I’ve sorted + aggregated both tables in descending order by average fare, whic
 
 ## Framing a Prediction Problem
 
-I'm tackling a regression task: predicting the ride fare price (`price`) for each trip in Boston.  
+I’m working on a regression task: predicting the ride fare price (price) for each trip in Boston. The target is the actual price shown to riders at booking, which is also what platforms aim to optimize. To make the model realistic, I only use features that would be available at the time of the ride request—things like trip distance, pickup hour, surge multiplier, cab type, service tier, origin and destination neighborhoods, and weather forecasts. No in-ride or post-trip data is included, to avoid leakage and better reflect how real fare estimators work.
 
-- Response variable: `price`-this is the value riders see and platforms optimize for, and it must be known at booking time.  
-- Features used: only data available when the ride is requested-trip distance, pickup hour/day/month, surge multiplier, cab type & service tier, origin & destination neighborhoods, and forecasted weather metrics. No in-ride or post-trip information is included to avoid leakage.  
-- Evaluation metric: RMSE as our primary score (to heavily penalize large dollar‐value mistakes) and mean absolute error for a straightforward average-error interpretation in dollars.  
-
-By restricting inputs and using RMSE/MAE, I can ensure that my model mimics real-world fare estimation and prioritizes minimizing costly prediction outliers.
+For evaluation, I’m using RMSE as the main metric, since it penalizes large mistakes more heavily—which makes sense in the context of pricing errors that could frustrate users or impact platform margins. I’m also tracking MAE, since it gives a clearer sense of the average error in dollars. By sticking to pre-ride inputs and using RMSE/MAE to measure performance, I can make sure my model is both grounded in reality and focused on minimizing high-cost prediction misses.
 
 ---
 
 ## Baseline Model
+
+For my baseline, I built a multiple linear regression model using a 20% random sample of the full dataset (about 13,861 rows). The goal was to iterate faster while keeping results representative of the full dataset. The model uses three features: distance, hour, and cab_type. Among these, distance and hour are quantitative, and cab_type is a nominal categorical variable. There aren’t any ordinal features in this version.
+
+To prep the data, I imputed missing values - using the median for numeric fields and a constant placeholder for categoricals. I scaled the numeric features using standardization, and encoded the categorical one with one-hot encoding. Everything was wrapped into a clean pipeline for reproducibility.
+
+After fitting the model, I evaluated it on a holdout test set. The baseline performance came out to an RMSE of 8.81, MAE of 7.15, and an R-squared score of 0.108. So, it's not a perfect model by any means - but it’s a reasonable first step. It picks up on some basic trends, though clearly there’s more complexity in fare pricing that a linear model alone can’t capture. I see this as a foundation to build on with more expressive models and richer features later on.
 
 <!-- Load MathJax for LaTeX rendering -->
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
