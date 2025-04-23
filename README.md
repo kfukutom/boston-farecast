@@ -1,7 +1,7 @@
-By: Ken Fukutomi 
+By: Ken Fukutomi  
 Email: [kfukutom@umich.edu](mailto:kfukutom@umich.edu)  
 Course: EECS 398 — Final Project  
-Website: [https://kfukutom.github.io/boston-farecast/](https://kfukutom.github.io/boston-farecast/)
+Repository: [https://github.com/kfukutom/boston-farecast](https://github.com/kfukutom/boston-farecast) 
 
 ---
 
