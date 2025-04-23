@@ -1,6 +1,6 @@
 By: Ken Fukutomi  
 Email: [kfukutom@umich.edu](mailto:kfukutom@umich.edu)  
-Course: EECS 398 — Final Project  
+Course: EECS 398 - Final Project  
 Repository: [https://github.com/kfukutom/boston-farecast](https://github.com/kfukutom/boston-farecast) 
 
 ---
@@ -38,3 +38,29 @@ Dataset overview:
 ---
 
 ## Data Cleaning and Exploratory Data Analysis 
+### Preprocessing + Cleaning 
+
+When first cleaning my data, I noticed the dataset came with a ton of information — which at first felt promising for predictive modeling. Features like trip origin and destination, cab type, ride distance, datetime, and even weather conditions (UV index, wind strength, etc.) stood out as potentially useful. However, there were also a number of duplicated or redundant columns, some of which needed cleaning due to encoding issues or lack of unique value. Using regex and column comparisons, I dropped these duplicates.
+
+One of the biggest challenges was missing values in the `price` column. To address this, I asked: (1) Are the prices missing because of trip cancellations? (2) Are the distances valid enough to expect a fare? The answer to both was yes — the trips were valid. So I applied two imputation strategies: one based on probabilistically sampling the price distribution, and another based on distance quantile bins. Both were reasonable, but I ultimately selected the probabilistic approach.
+
+Here is the visualization showcasing the differences between the original and imputed price distributions:
+
+<iframe src="assets/fare-imputation-comparison.html" width="800" height="600" frameborder="0"></iframe>
+
+Given that the two imputation methods yield nearly identical distributions and the overall percentage of missing values is low, we can safely conclude that the choice of imputation strategy will not materially affect our analysis. Therefore, we adopt a probabilistic imputation approach, sampling each missing value from the empirical distribution of observed values:
+
+$$
+x_i^{(\mathrm{imputed})} = x_j,\quad
+j \sim \mathrm{Uniform}\bigl(\{k \mid x_k \neq \mathrm{NaN}\}\bigr).
+$$
+
+Equivalently, each observed value has equal probability:
+
+$$
+P\bigl(x_i^{(\mathrm{imputed})} = x_j\bigr)
+= \frac{1}{n_{\mathrm{observed}}},
+$$
+
+Regardless, my selection for which method doesn't affect the overall distribution. Hence, I could've just kept variables as NaN, but I preferred to have it imputed, in order to have a full column of information (pricing, as it becomes relevant later).
+
