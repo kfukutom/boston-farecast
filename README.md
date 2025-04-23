@@ -1,5 +1,3 @@
-## Predicting Ridefare Prices in Boston, MA
-
 By: Ken Fukutomi 
 Email: [kfukutom@umich.edu](mailto:kfukutom@umich.edu)  
 Course: EECS 398 — Final Project  
