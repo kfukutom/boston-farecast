@@ -142,6 +142,10 @@ To prep the data, I imputed missing values - using the median for numeric fields
 
 After fitting the model, I evaluated it on a holdout test set. The baseline performance came out to an RMSE of 8.81, MAE of 7.15, and an R-squared score of 0.108. So, it's not a perfect model by any means - but it’s a reasonable first step. It picks up on some basic trends, though clearly there’s more complexity in fare pricing that a linear model alone can’t capture. I see this as a foundation to build on with more expressive models and richer features later on.
 
+## Final Model
+
+Finally, I've attempted to create a finalized + optimized model. I started with a basic linear regression baseline and gradually engineered new features like log_distance, sin_hour, and weekend/peak-hour flags to better capture nonlinear and temporal patterns. After testing multiple models, I applied Ridge Regression with hyperparameter tuning to improve generalization while maintaining interpretability. The final model achieved an RMSE of 8.79, MAE of 7.10, and an R² of 0.109, with the best alpha value being 10.0.
+
 <!-- Load MathJax for LaTeX rendering -->
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async
