@@ -46,7 +46,7 @@ The answer to both was yes — the trips were valid. So I applied two imputation
 
 Here is the visualization comparing the original prices with both imputed strategies:
 
-<iframe src="assets/fare-imputation-comparison.html" width="800" height="600" frameborder="0"></iframe>
+<iframe src="assets/fare-imputation-comparison.html" width="800" height="330" frameborder="0"></iframe>
 
 The probabilistic imputation strategy samples missing values directly from the empirical distribution of observed values:
 
