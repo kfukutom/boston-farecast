@@ -48,6 +48,8 @@ The answer to both was yes — the trips were valid. So I applied two imputation
 
 <iframe src="assets/fare-imputation-comparison.html" width="800" height="425" frameborder="0"></iframe>
 
+---
+
 The probabilistic imputation strategy samples missing values directly from the empirical distribution of observed values:
 
 $$
@@ -76,6 +78,8 @@ To finalize my cleaning, I dropped unnecessary columns that had minimal or no im
 |      4 |       0.44 |      26 | Lyft       | Lux Black XL | North Station |
 |      3 |       0.44 |       9 | Lyft       | Lyft XL      | North Station |
 
+---
+
 ### Univariate Analysis
 
 The plot below shows the *log-normalized distribution* of trip distances before and after missing values were imputed. Most trips in the dataset remain clustered at shorter distances (under 5 miles), and the alignment between the original and imputed distributions confirms that the imputation process preserved the shape and scale of the data. This supports the assumption that filling missing `distance` values using a probabilistic approach won’t distort downstream modeling.
@@ -88,9 +92,15 @@ I experimented with the imputed results and found no significant difference betw
 
 <iframe src="assets/trip-frequency-map.html" width="800" height="400" frameborder="0"></iframe>
 
+---
+
 ### Bivariate Analysis and Aggregates
 
+To better understand relationships between continuous variables, I created a correlation heatmap across numerical features in the dataset. This visualization helps reveal multicollinearity and patterns that may not be immediately obvious from scatterplots alone. Notably, variables like `temperature` and `apparentTemperature` show strong positive correlation, as expected, while `distance` and `price` also share a moderate positive relationship — reinforcing their usefulness in fare prediction.
 
+<iframe src="assets/corr.html" width="800" height="600" frameborder="0"></iframe>
+
+---
 
 <!-- Load MathJax for LaTeX rendering -->
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
