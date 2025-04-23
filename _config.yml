@@ -1,0 +1,10 @@
+title: FareCast: Predicting Ride Prices in Boston
+author: Ken Fukutomi
+description: >
+  A data science project exploring spatial and temporal dynamics of ridefare prices in Boston, powered by machine learning and geospatial analysis.
+
+theme: minima
+
+# Optional customization
+markdown: kramdown
+highlighter: rouge
