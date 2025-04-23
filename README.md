@@ -7,7 +7,7 @@ Website: [https://kfukutom.github.io/boston-farecast/](https://kfukutom.github.i
 
 ## Introduction 
 
-This project investigates the dynamics of rideshare pricing in Boston, MA using a dataset of nearly 700,000 combined Uber and Lyft trips. With the growing use of on-demand mobility services, understanding how fare pricing works - and what influences it — is crucial for both riders and active municipal officials. By understanding this kind of synergy, I aim to try and understand what kinds of variables impact such delays in trip time, quality, and how such information could lead to a novel insight into accurate predictions of trip fares on such large dataset.
+This project investigates the dynamics of rideshare pricing in Boston, MA using a dataset of nearly 700,000 combined Uber and Lyft trips. With the growing use of on-demand mobility services, understanding how fare pricing works - and what influences it - is crucial for both riders and active municipal officials. By understanding this kind of synergy, I aim to try and understand what kinds of variables impact such delays in trip time, quality, and how such information could lead to a novel insight into accurate predictions of trip fares on such large dataset.
 
 The key question guiding this project is:  
 **What factors most strongly influence trip price, and how accurately can we predict ridefare using those variables?**
@@ -22,7 +22,7 @@ Several real-world questions naturally emerge while exploring the data:
 - Do weather conditions (e.g., temperature, UV index) affect average fares?  
 - Which trip origins tend to have higher or lower ride costs?  
 
-For the predictive portion of this project, I will first establish a baseline model, and then refine it to improve accuracy — allowing us to predict trip fares based on contextual factors like time, distance, service type, and location.
+For the predictive portion of this project, I will first establish a baseline model, and then refine it to improve accuracy - allowing us to predict trip fares based on contextual factors like time, distance, service type, and location.
 
 Dataset overview:  
 - Number of rows: 693,071  
