@@ -120,7 +120,7 @@ To better understand relationships between continuous variables, I created a cor
 | Financial District      | Uber       |        17.09 |           13.5 |            2.64 |              1.22 |
 | Back Bay                | Uber       |        15.69 |           13   |            2.1  |              1.78 |
 
-I’ve sorted both tables in descending order by average fare, which immediately highlights that the top three destinations differ between Uber and Lyft. This divergence underscores how each service’s pricing varies by neighborhood and reinforces the importance of including destination as a feature in our predictive model—mean price alone already reveals distinct patterns that our model can learn and exploit.
+I’ve sorted + aggregated both tables in descending order by average fare, which immediately highlights that the top three destinations differ between Uber and Lyft. This divergence underscores how each service’s pricing varies by neighborhood and reinforces the importance of including destination as a feature in our predictive model-mean price alone already reveals distinct patterns that our model can learn from!
 
 ---
 
@@ -128,8 +128,8 @@ I’ve sorted both tables in descending order by average fare, which immediately
 
 I'm tackling a regression task: predicting the ride fare price (`price`) for each trip in Boston.  
 
-- Response variable: `price`—this is the value riders see and platforms optimize for, and it must be known at booking time.  
-- Features used: only data available when the ride is requested—trip distance, pickup hour/day/month, surge multiplier, cab type & service tier, origin & destination neighborhoods, and forecasted weather metrics. No in-ride or post-trip information is included to avoid leakage.  
+- Response variable: `price`-this is the value riders see and platforms optimize for, and it must be known at booking time.  
+- Features used: only data available when the ride is requested-trip distance, pickup hour/day/month, surge multiplier, cab type & service tier, origin & destination neighborhoods, and forecasted weather metrics. No in-ride or post-trip information is included to avoid leakage.  
 - Evaluation metric: RMSE as our primary score (to heavily penalize large dollar‐value mistakes) and mean absolute error for a straightforward average-error interpretation in dollars.  
 
 By restricting inputs and using RMSE/MAE, I can ensure that my model mimics real-world fare estimation and prioritizes minimizing costly prediction outliers.
