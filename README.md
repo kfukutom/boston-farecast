@@ -84,6 +84,10 @@ The plot below shows the *log-normalized distribution* of trip distances before 
 
 <iframe src="assets/log.html" width="800" height="400" frameborder="0"></iframe>
 
+I experimented with the imputed results and found no significant difference between the two methods. Additionally, none of the imputed price values were below zero, and since the distribution wasn’t strongly right-skewed, I decided to move forward using the original (non-log-transformed) pricing data. I also created a geospatial visualization of trip distributions, shown below:
+
+<iframe src="assets/trip-frequency-map.html" width="800" height="400" frameborder="0"></iframe>
+
 ### Bivariate Analysis and Aggregates
 
 
