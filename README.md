@@ -100,6 +100,28 @@ To better understand relationships between continuous variables, I created a cor
 
 <iframe src="assets/corr.html" width="800" height="400" frameborder="0"></iframe>
 
+#### An Interesting Aggregate
+
+*Lyft Data Table*
+| destination       | cab_type   |   price_mean |   price_median |   distance_mean |   distance_median |
+|:------------------|:-----------|-------------:|---------------:|----------------:|------------------:|
+| Boston University | Lyft       |        20.32 |           19.5 |            3.18 |              3.07 |
+| Back Bay          | Lyft       |        16.89 |           16.5 |            2.07 |              1.97 |
+| North Station     | Lyft       |        17.77 |           16.5 |            2.26 |              3.17 |
+| Beacon Hill       | Lyft       |        16.88 |           16.5 |            2.19 |              2.42 |
+| West End          | Lyft       |        17.08 |           16.5 |            2.12 |              2.77 |
+
+*Uber Data Table*
+| destination             | cab_type   |   price_mean |   price_median |   distance_mean |   distance_median |
+|:------------------------|:-----------|-------------:|---------------:|----------------:|------------------:|
+| Boston University       | Uber       |        17.5  |           15   |            2.88 |              2.8  |
+| Fenway                  | Uber       |        16.96 |           14   |            2.79 |              2.84 |
+| Northeastern University | Uber       |        16.9  |           14   |            2.66 |              2.56 |
+| Financial District      | Uber       |        17.09 |           13.5 |            2.64 |              1.22 |
+| Back Bay                | Uber       |        15.69 |           13   |            2.1  |              1.78 |
+
+I’ve sorted both tables in descending order by average fare, which immediately highlights that the top three destinations differ between Uber and Lyft. This divergence underscores how each service’s pricing varies by neighborhood and reinforces the importance of including destination as a feature in our predictive model—mean price alone already reveals distinct patterns that our model can learn and exploit.
+
 ---
 
 ## Framing a Prediction Problem
