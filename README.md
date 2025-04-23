@@ -82,11 +82,11 @@ The plot below shows the *log-normalized distribution* of trip distances before 
 
 <iframe src="assets/distance.html" width="800" height="400" frameborder="0"></iframe>
 
-<iframe src="assets/logdistance.html" width="800" height="400" frameborder="0"></iframe>
+<iframe src="assets/log.html" width="800" height="400" frameborder="0"></iframe>
 
 ### Bivariate Analysis and Aggregates
 
-Hello world!
+
 
 <!-- Load MathJax for LaTeX rendering -->
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
